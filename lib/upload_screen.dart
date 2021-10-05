@@ -15,20 +15,17 @@ class UpLoadScreen extends StatefulWidget {
 }
 
 class _UpLoadScreenState extends State<UpLoadScreen> {
-  List<Asset> images = [];
-  File? image;
+  List<Asset> images = [];/// mảng chứa ảnh nhiều hình ảnh từ thư viện
+  File? image;// file img chứa 1 ảnh chụp từ camera.
 
 
   //// http api
 
-  asyncFileUpload(String text, File file) async{
-    //create multipart request for POST or PATCH method
+  ///// cách 1 ----- đang sử dụng phía dưới
+  FileUpload(String text, File file) async{
     var request = http.MultipartRequest("POST", Uri.parse("https://apiappmobile.vntt.com.vn/WeatherForecast/UploadFile"));
-    //add text fields
     request.fields["text_field"] = text;
-    //create multipart using filepath, string or bytes
     var pic = await http.MultipartFile.fromPath("file_field", file.path);
-    //add multipart to request
     request.files.add(pic);
     var response = await request.send();
 
@@ -39,7 +36,7 @@ class _UpLoadScreenState extends State<UpLoadScreen> {
   }
 
 
-
+  // cách 2.
   Future upLoad() async{
     final uri=Uri.parse("https://apiappmobile.vntt.com.vn/WeatherForecast/UploadFile");
     var request=http.MultipartRequest('POST',uri);
@@ -54,14 +51,12 @@ class _UpLoadScreenState extends State<UpLoadScreen> {
 
   }
 
-
+  /// cách 3
   Future uploadPhotos() async {
     Uri uri = Uri.parse('https://apiappmobile.vntt.com.vn/WeatherForecast/UploadFile');
     http.MultipartRequest request = http.MultipartRequest('POST', uri);
 
       request.files.add(await http.MultipartFile.fromPath('files', image!.path));
-
-
     http.StreamedResponse response = await request.send();
     var responseBytes = await response.stream.toBytes();
     print('\n\n');
@@ -182,9 +177,9 @@ class _UpLoadScreenState extends State<UpLoadScreen> {
           SizedBox(height: 30,),
           FlatButton(
               onPressed: (){
-                asyncFileUpload("filename",image!);
+                FileUpload("filename",image!);
               },
-              child: Text("upFile")
+              child: Text("upFile lên server")
           )
         ],
       ),
