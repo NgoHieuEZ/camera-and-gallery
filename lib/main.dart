@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:test/form_radio_button.dart';
 import 'package:test/popup_notification.dart';
 import 'upload_screen.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: PopUpNotification(),
+      home: FormRadioButton(),
     );
   }
 }
