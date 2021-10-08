@@ -53,8 +53,8 @@ class _FormRadioButtonState extends State<FormRadioButton> {
                 Radio(
                   value: 0,
                   groupValue: selectedRadio,
-                  onChanged: (avlue){
-                    setStateRadio(int.parse(avlue.toString()));
+                  onChanged: (value){
+                    setStateRadio(int.parse(value.toString()));
                   },
                 ),
                 SizedBox(width: 10,),
@@ -66,8 +66,8 @@ class _FormRadioButtonState extends State<FormRadioButton> {
                 Radio(
                   value: 1,
                   groupValue: selectedRadio,
-                  onChanged: (avlue){
-                    setStateRadio(int.parse(avlue.toString()));
+                  onChanged: (value){
+                    setStateRadio(int.parse(value.toString()));
                   },
                 ),
                 SizedBox(width: 10,),
@@ -79,8 +79,8 @@ class _FormRadioButtonState extends State<FormRadioButton> {
                 Radio(
                   value: 2,
                   groupValue: selectedRadio,
-                  onChanged: (avlue){
-                    setStateRadio(int.parse(avlue.toString()));
+                  onChanged: (value){
+                    setStateRadio(int.parse(value.toString()));
                   },
                 ),
                 SizedBox(width: 10,),
@@ -92,8 +92,8 @@ class _FormRadioButtonState extends State<FormRadioButton> {
                 Radio(
                   value: 3,
                   groupValue: selectedRadio,
-                  onChanged: (avlue){
-                    setStateRadio(int.parse(avlue.toString()));
+                  onChanged: (value){
+                    setStateRadio(int.parse(value.toString()));
                   },
                 ),
                 SizedBox(width: 10,),
